@@ -1,0 +1,53 @@
+
+
+ <a href="/home/new" class="btn btn-primary" type="button">
+                        Novo Projeto
+                    </a>
+
+
+<h2> Projetos </h2>
+
+<div ng-app="kendoGrid">
+    <div ng-controller="MainGrid">
+        <kendo-grid options="mainGridOptions">
+            <div k-detail-template>
+                <kendo-tabstrip>
+                <ul>
+                    <li class="k-state-active">Imposto</li>
+                    <li>Despesa</li>
+                    <li>Investimento</li>
+                    <li>Recurso</li>
+                  
+                </ul>
+                <div>
+                    <div kendo-grid k-options="detailGridOptions(dataItem)"></div>
+                </div>
+                 <div>
+                    <ul>
+                        <li>Despesa: <input ng-model="dataItem.Despesa" /></li>
+                        <li>Custo: <input ng-model="dataItem.Depcust" /></li>
+                        
+                    </ul>
+                </div>
+                 <div>
+                    <ul>
+                        <li>Investimento: <input ng-model="dataItem.Investimento" /></li>
+                        <li>Custo: <input ng-model="dataItem.InvCust"/></li>
+                    </ul>
+                </div>
+                 <div>
+                    <ul>
+                        <li>Recurso: <input ng-model="dataItem.Recurso" /></li>
+                        <li>Custo: <input ng-model="dataItem.RecCusto" /></li>
+                        <li>Nivel: <input ng-model="dataItem.Nivel" /></li>
+                        
+                    </ul>
+                </div>
+               
+                </kendo-tabstrip>
+            </div>
+        </kendo-grid>
+
+
+    </div>
+</div>

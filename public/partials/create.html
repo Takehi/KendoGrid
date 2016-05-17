@@ -1,0 +1,312 @@
+
+<h2>Projeto</h2>
+
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <label for="project">Projeto:</label>
+    <input type="text" class="form-control" id="projName">
+  </div>
+  <div class="form-group">
+    <label for="opSales">Oportunidade Salesforce:</label>
+    <input type="password" class="form-control" id="opSales">
+  </div>
+  <div class="form-group">
+    <label for="tpPro" >Tipo do Projeto:</label>
+    <input type="text" class="form-control" id="projTip">
+  </div>
+  <div class="form-group">
+    <label for="mkp">Markup:</label>
+    <input type="number" class="form-control" id="mkp" min="0" max="100">
+  </div>
+</form>
+
+<br/>
+<br/>
+<br/>
+
+<h2>Recursos</h2> 
+   <div class="demo-section k-content">
+         <button class="btn btn-primary" ng-show="!win2visible" ng-click="win.open()">Novo Recurso</button>
+         <button class="btn btn-primary" onclick="add()">+</button>
+        </div>
+        <div kendo-window="win" k-title="'Novo Recurso'"
+            k-width="800" k-height="500" k-visible="false"
+             k-content="{ url: 'http://localhost:3000/home/new/recurso' }"
+            k-on-open="win2visible = true" k-on-close="win2visible = false"></div>
+                        
+
+<div class="container" id="div1">
+
+<form class="form-inline" role="form">
+
+<div ng-controller="homeController as vm">
+<div class="form-group"> 
+   <select kendo-drop-down-list
+          k-options="vm.recursoOptions"
+           id="recName" onchange="addValores()" ></select>
+
+
+</div>
+
+
+<div class="form-group">
+
+      <label for="numCusto">Custo:</label>
+      <input type="text" class="form-control" id="reCust" data-text-field="custo" readonly="readonly">
+    </div>
+</div>
+
+</form>
+
+</div>
+<br/>
+<br/>
+
+<h2>Despesas</h2>
+<div class="demo-section k-content">
+         <button class="btn btn-primary" ng-show="!win2visible" ng-click="win3.open()">Nova Despesa</button>
+        </div>
+        <div kendo-window="win3" k-title="'Nova Despesa'"
+            k-width="800" k-height="500" k-visible="false"
+             k-content="{ url: 'http://localhost:3000/home/new/despesa' }"
+            k-on-open="win2visible = true" k-on-close="win2visible = false"></div>
+
+<div class="container">
+<form class="form-inline" role="form">
+
+<div ng-controller="homeController as vm">
+<div class="form-group"> 
+   <select kendo-drop-down-list
+           k-options="vm.despesaOptions" id="depName" onchange="addDespesa()"></select>
+
+</div>
+    <div class="form-group">
+      <label for="qnt">Quantidade:</label>
+      <input type="number" class="form-control" id="qnt" onfocusout="calcula()">
+    </div>
+<div class="form-group">
+      <label for="numCusto">Custo:</label>
+      <input type="text" class="form-control" id="depCust" data-text-field="custo" readonly="readonly">
+    </div>
+ <div class="form-group">
+      <label for="qnt">Total:</label>
+      <input type="number" class="form-control" id="depTotal" readonly="readonly">
+    </div>
+
+</div>
+
+</form>
+
+<br/>
+</div>
+
+
+<h2>investimento</h2>
+<div class="demo-section k-content">
+         <button class="btn btn-primary" ng-show="!win2visible" ng-click="win4.open()">Novo Investimento</button>
+        </div>
+        <div kendo-window="win4" k-title="'Novo Investimento'"
+            k-width="800" k-height="500" k-visible="false"
+             k-content="{ url: 'http://localhost:3000/home/new/investimento' }"
+            k-on-open="win2visible = true" k-on-close="win2visible = false"></div>
+
+
+
+<div class="container">
+
+
+<form class="form-inline" role="form">
+
+<div ng-controller="homeController as vm">
+<div class="form-group"> 
+   <select kendo-drop-down-list
+          k-options="vm.investimentoOptions"
+           id="invName" onchange="addInvestimento()" ></select>
+
+</div>
+    <div class="form-group">
+      <label for="qnt">Quantidade:</label>
+      <input type="number" class="form-control" id="qnt2" onfocusout="calculaInv()">
+    </div>
+<div class="form-group">
+      <label for="numCusto">Custo:</label>
+      <input type="text" class="form-control" id="invCust" data-text-field="custo" readonly="readonly">
+    </div>
+ <div class="form-group">
+      <label for="qnt">Total:</label>
+      <input type="number" class="form-control" id="invTotal" readonly="readonly">
+    </div>
+
+</div>
+
+</form>
+
+
+
+<br/>
+</div>
+<h2>Impostos</h2>
+<div class="demo-section k-content">
+         <button class="btn btn-primary" ng-show="!win2visible" ng-click="win2.open()">Novo Imposto</button>
+        </div>
+        <div kendo-window="win2" k-title="'Novo Immposto'"
+            k-width="800" k-height="500" k-visible="false"
+             k-content="{ url: 'http://localhost:3000/home/new/imposto' }"
+            k-on-open="win2visible = true" k-on-close="win2visible = false"></div>
+
+<div class="container">
+
+
+<form class="form-inline" role="form">
+
+<div ng-controller="homeController as vm">
+<div class="form-group"> 
+   <select kendo-drop-down-list
+           k-options="vm.impostoOptions" id="impName" onchange="addImpostos()" ></select>
+
+</div>
+    
+<div class="form-group">
+      <label for="numCusto">valor:</label>
+      <input type="text" class="form-control" id="impCust" data-text-field="custo" readonly="readonly">
+    </div>
+
+
+</div>
+
+</form>
+
+<div class="container">
+  <h2>Formação do preço</h2>
+  <form class="form-inline" role="form">
+    <div class="form-group">
+      <label>Total Despesaa:</label>
+      <input class="form-control" id="deptotal" readonly>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Total Investimento:</label>
+      <input  class="form-control" id="invtotal" readonly>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Total Recurso:</label>
+      <input  class="form-control" id="rectotal" readonly>
+    </div>
+      <div class="form-group">
+      <label>Total de Gastos:</label>
+      <input  class="form-control" id="Totalgasto" readonly>
+    </div>
+  
+    <div class="form-group">
+      <label>Total de impostos:</label>
+      <input  class="form-control" id="imptotal" readonly>
+    </div>
+  
+    <div class="form-group">
+      <label>Preço de venda:</label>
+      <input class="form-control" id="price" readonly>
+    </div>
+     <div class="form-group">
+      <label>Total Liquido:</label>
+      <input class="form-control" id="liquitotal" readonly>
+    </div>
+  <div class="form-group">
+      <label>Gross Margin:</label>
+      <input class="form-control" id="grossmargin" readonly>
+    </div> 
+     <div class="form-group">
+      <label>Markup: </label>
+      <input  class="form-control" id="Markup" readonly>
+    </div>
+  
+  </form>
+</div>
+
+
+
+
+<script>
+
+function add(){
+
+var div = document.getElementById('divID');
+
+
+}
+
+  
+function addValores(){
+  
+
+var x = recName.options[recName.selectedIndex].getAttribute('value');
+var y =  document.querySelector("#reCust").value= x;
+
+
+
+
+  
+}
+function addDespesa(){
+  
+
+var despesacost = depName.options[depName.selectedIndex].getAttribute('value');
+var depcusto = document.querySelector("#depCust").value = despesacost
+
+
+
+
+
+}
+
+function calcula(){
+var despesa = depName.options[depName.selectedIndex].getAttribute('value');
+var qnt = document.querySelector("#qnt").value
+
+
+var x = parseFloat(despesa);
+var y = parseFloat(qnt);
+
+var calc = x*y;
+
+
+var total = document.querySelector("#depTotal").value = calc
+
+
+}
+
+function addInvestimento(){
+  
+
+var investimento = invName.options[invName.selectedIndex].getAttribute('value');
+
+
+var invCusto = document.querySelector("#invCust").value = investimento
+}
+
+ function calculaInv(){
+
+var investimento = invName.options[invName.selectedIndex].getAttribute('value');
+var qnt = document.querySelector("#qnt2").value
+
+
+var x = parseFloat(investimento);
+var y = parseFloat(qnt);
+
+var calc = x*y;
+
+
+var total = document.querySelector("#invTotal").value = calc
+
+
+ }
+
+ function addImpostos(){
+  
+
+var imposto = impName.options[impName.selectedIndex].getAttribute('value');
+
+
+var impCusto = document.querySelector("#impCust").value = imposto
+}
+
+
+</script>
